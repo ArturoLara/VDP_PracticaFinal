@@ -12,10 +12,11 @@ make bootstrap
 
 ## How it works
 
-As first step you sould start Django server,
+As first step you should start Django server, **_(¿Cómo lo hago? Necesitas especificarlo e indicar que debo de estar dentro del virtualenv para que funcione)_**
+
 then you can access to web page with  a text field and 2 buttons.
 
-In order to use the aplication:
+In order to use the application:
 
 * 1º You have to put your text on text box.
 * 2º Press "execute" button for request to server.
@@ -23,3 +24,5 @@ In order to use the aplication:
 
 * "Reset button": This button reset the page
 * "Execute button (with out text inserted)": Don't appear nothing.
+
+**_(¿Cómo ejecuto los tests?)_**

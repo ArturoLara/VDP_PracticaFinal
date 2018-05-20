@@ -6,12 +6,16 @@ Feature: Web words analyzer
     Scenario: Analyze a normal text
       Given I have the text "Hola, me llamo Alfonso. Hola que tal, no me llamo Arturo."
       When I put it in the textfield
-      Then I see the result text "[['me', 2], ['llamo', 2], ['hola', 2], ['no', 1], ['tal', 1], ['que', 1], ['alfonso', 1], ['arturo', 1]]" and "" in the textfield
+      And I click the execute button
+      Then I see the result text "[['me', 2], ['llamo', 2], ['hola', 2], ['no', 1], ['tal', 1], ['que', 1], ['alfonso', 1], ['arturo', 1]]"
+      And I see in the textfield the text ""
 
     Scenario: Analyze a empty text
       Given I have the text ""
-      When I put it in the textfield and click the execute bottom
-      Then I see the result text "" and "" in the textfield
+      When I put it in the textfield
+      And I click the execute button
+      Then I see the result text ""
+      And I see in the textfield the text ""
 
     Scenario: Reset the textfield
       Given I have in the textfield the text "Esto va a ser reseteado"
@@ -26,4 +30,6 @@ Feature: Web words analyzer
     Scenario: More than 100 characters at the textfield
       Given I have the text "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789EstoNoSaldra"
       When I put it in the textfield the text
-      Then I see in the textfield the text "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789"
+      And I click the execute button
+      Then I see the result text "[['0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789', 1]]"
+      And I see in the textfield the text ""

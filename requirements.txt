@@ -2,4 +2,3 @@ nose
 selenium
 lettuce
 Django
-Phyton-2.x
