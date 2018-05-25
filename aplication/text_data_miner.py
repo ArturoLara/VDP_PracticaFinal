@@ -4,9 +4,8 @@ import unicodedata
 
 
 def text_data_miner(texto):
-
     # Se codifica a unicode y se decodifica a UTF-8
-    texto = texto.encode('ascii','ignore')
+    texto = texto.encode('ascii', 'ignore')
 
     if type(texto) is not str:
         raise TypeError
@@ -16,7 +15,6 @@ def text_data_miner(texto):
 
     for puntuacion in signos_puntuacion:
         texto = texto.replace(puntuacion, " ")
-
 
     palabras = texto.split()
 
@@ -43,7 +41,6 @@ def text_data_miner(texto):
     lista_palabras_repetidas = []
     for key in diccionario_repetidos.keys():
         lista_palabras_repetidas.append([key, diccionario_repetidos[key]])
-
 
     return sorted(lista_palabras_repetidas, key=lambda tup: tup[1], reverse=True)
 
