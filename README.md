@@ -25,4 +25,4 @@ In order to use the application:
 * "Reset button": This button reset the page
 * "Execute button (with out text inserted)": Don't appear nothing.
 
-**_(¿Cómo ejecuto los tests? Con el nabo!!)_**
+**_(¿Cómo ejecuto los tests? Con la polla)_**
