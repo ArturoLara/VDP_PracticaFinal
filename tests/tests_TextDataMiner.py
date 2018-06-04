@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
-
+import sys
+sys.path.append("../..")
 from aplication.text_data_miner import text_data_miner
 import unittest
 
@@ -69,7 +70,6 @@ class tester_text_data_miner(unittest.TestCase):
                           ['listo', 1], ['cualquier', 1], ['aspecto', 1], ['hola', 1], ['me', 1], ['acuerdo', 1]]
 
 
-
     def test_short_text_punctuation_marks(self):
         text = "...:-´`+*¨+´+´++++++´+´ que bien es eso `+´+´+...,.,'''?!!!!¿'¡"
         result = text_data_miner(text)
@@ -86,4 +86,4 @@ class tester_text_data_miner(unittest.TestCase):
 
 if __name__ == '__main__':
     import xmlrunner
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-report'))
+    unittest.main()
