@@ -87,4 +87,5 @@ class tester_text_data_miner(unittest.TestCase):
 
 if __name__ == '__main__':
     import xmlrunner
+
     unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-report'))
