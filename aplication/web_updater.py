@@ -1,27 +1,27 @@
 from text_data_miner import text_data_miner
 from get_text_from_url import get_text_from_url
+from BBDD import *
+import datetime
+
+
 
 def web_updater(url):
 
     try:
         texto = get_text_from_url(url)
     except:
-        return "No se ha podido leer la pagina"
+        return [["No se ha podido", "leer la pagina"]]
 
-    diccionario = {}
-    lista = [[]]
+    now = datetime.datetime.now().strftime("%Y-%m-%d")
+    base_datos = gestorBBDD()
+
     for frase in texto:
         lista_repetidas = text_data_miner(frase)
+        print(lista_repetidas)
+        base_datos.addData(now, lista_repetidas)
 
-        #for element in lista_repetidas:
-        #    if element[0] in diccionario.keys():
-        #        diccionario[element[0]] += element[1]
-        #    else:
-        #        diccionario[element[0]] = element[1]
 
-        #llamar a arturo con cada frase
-        #recibir los datos
-    return diccionario
+    return base_datos.showData(now)
 
 
 if __name__ == '__main__':

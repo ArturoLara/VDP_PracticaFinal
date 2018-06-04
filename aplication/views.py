@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from text_data_miner import text_data_miner
+from web_updater import web_updater
 
 from .forms import NameForm
 
@@ -12,7 +12,7 @@ def get_name(request):
         form = NameForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            text = text_data_miner(form.getText())
+            text = web_updater(form.getText())
 
     # if a GET (or any other method) we'll create a blank form
 
