@@ -8,5 +8,5 @@ find . -name "tests*.py" -print | while read f; do
         python "$f"
         ###
 cd /var/lib/jenkins/workspace/test
-python manage.py runserver 0.0.0.0:8000
+python manage.py runserver 0.0.0.0:8000 &
 done
