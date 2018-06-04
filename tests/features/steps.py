@@ -11,11 +11,10 @@ def have_the_text(step, text):
 def put_text_click_e_bottom(step):
     world.driver.find_element_by_id("id_text").send_keys(world.text)
 
-
-@step('I see the result text "(.*)"')
-def check_result_text(step, textResult):
+@step('I see that text in the result text')
+def check_result_text(step):
     result_text = world.driver.find_element_by_id("answer").text
-    assert result_text == textResult
+    assert result_text == step.multiline
 
 
 @step('I click the execute button')
