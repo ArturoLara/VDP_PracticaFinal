@@ -18,19 +18,29 @@
     </div>
     <div class="form-control col-sm-5 ">
         <button id="execute" name="execute" type="submit" value="execute" class="btn btn-default inline">execute</button>
-        <button id="reset" name="reset" type="submit" value="reset" class="btn btn-default inline">reset</button>
     </div>
-    <div id="answer" class="form-control col-sm-5">
-        {% for list in answer %}
-        {% for word in list %}
-            {{ word }}
-        {% endfor %}
-        <br>
-    {% endfor %}
-    </div>
-
-
 </form>
+
+<form method="POST" class="form-horizontal">
+    {% csrf_token %}
+    <div class="form-control col-sm-5">
+    {{ dateForm }}
+    </div>
+    <div class="form-control col-sm-5 ">
+        <button id="executeDate" name="executeDate" type="submit" value="executeDate" class="btn btn-default inline">See date</button>
+    </div>
+</form>
+
+
+
+<div id="answer" class="form-control col-sm-5">
+    {% for list in answer %}
+    {% for word in list %}
+        {{ word }}
+    {% endfor %}
+    <br>
+{% endfor %}
+</div>
 
 </body>
 </html>
