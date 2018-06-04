@@ -9,20 +9,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
-<body class="bg-info">
+<body class="bg-info ">
 
 <form method="POST" class="form-horizontal">
     {% csrf_token %}
-    <div class="form-control col-sm-2">
+    <div class="form-control col-sm-5">
     {{ form }}
     </div>
-    <div class="form-control col-sm-2 ">
+    <div class="form-control col-sm-5 ">
         <button id="execute" name="execute" type="submit" value="execute" class="btn btn-default inline">execute</button>
         <button id="reset" name="reset" type="submit" value="reset" class="btn btn-default inline">reset</button>
     </div>
-    <div id="answer" class="form-control col-sm-10">
-    {{ answer }}
+    <div id="answer" class="form-control col-sm-5">
+        {% for list in answer %}
+        {% for word in list %}
+            {{ word }}
+        {% endfor %}
+        <br>
+    {% endfor %}
     </div>
+
+
 </form>
 
 </body>
