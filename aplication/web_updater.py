@@ -24,8 +24,6 @@ def web_updater(url):
     return base_datos.showData(now)
 
 
-if __name__ == '__main__':
-    print(web_updater("http://www.elmundo.es/cultura/2017/03/09/58c063b4ca4741e2268b45ba.html"))
 
 
 
