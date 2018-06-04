@@ -2,8 +2,8 @@ from django import forms
 
 
 class NameForm(forms.Form):
-    text = forms.CharField(label='Introduce Texto', max_length=100, required=False,
-                           widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}))
+    text = forms.CharField(label='Introduce Url', max_length=100, required=False,
+                           widget=forms.Textarea(attrs={'rows': 1, 'cols': 76}))
 
     def getText(self):
         text = ""
