@@ -5,6 +5,6 @@
 find . -name "tests*.py" -print | while read f; do
         echo "$f"
         ###
-        python2 "$f"
+        python "$f"
         ###
 done
