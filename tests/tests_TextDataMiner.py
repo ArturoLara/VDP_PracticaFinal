@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
+
 import sys
-sys.path.append("/var/lib/jenkins/workspace/test/*")
+sys.path.append("..")
 from aplication.text_data_miner import text_data_miner
 import unittest
 
