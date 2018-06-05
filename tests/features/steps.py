@@ -1,15 +1,21 @@
 from lettuce import step
 from lettuce import world
-import pdb
+from mock import patch
 
 @step('I have the text "(.*)"')
 def have_the_text(step, text):
     world.text = text
 
 
-@step('I put it in the textfield')
+@step('I put it in the url textfield')
 def put_text_click_e_bottom(step):
     world.driver.find_element_by_id("id_text").send_keys(world.text)
+
+
+@step('I put it in the date textfield')
+def put_text_click_e_bottom(step):
+    world.driver.find_element_by_id("id_date").send_keys(world.text)
+
 
 @step('I see that text in the result text')
 def check_result_text(step):
@@ -21,18 +27,25 @@ def check_result_text(step):
 def click_execute_button(step):
     world.driver.find_element_by_id("execute").click()
 
-
-@step('I click the reset bottom')
-def click_r_buttom(step):
-    world.driver.find_element_by_id("reset").click()
-
-
-@step('I have in the textfield the text "(.*)"')
-def put_text_at_textfield(step, text):
-    world.driver.find_element_by_id("id_text").send_keys(text)
+@step('I click the seeDate button')
+def click_execute_button(step):
+    world.driver.find_element_by_id("executeDate").click()
 
 
-@step('I see in the textfield the text "(.*)"')
+
+@step('I see in the url textfield the text "(.*)"')
 def check_text(step, text):
     textfield = world.driver.find_element_by_id("id_text").get_attribute('value')
     assert textfield == text
+
+
+@step('I see in the date textfield the text "(.*)"')
+def check_text(step, text):
+    textfield = world.driver.find_element_by_id("id_date").get_attribute('value')
+    assert textfield == text
+
+
+@step('I make sure that this url is invalid')
+@patch('aplication.web_updater.web_updater')
+def make_invalid(step, mock):
+    function
