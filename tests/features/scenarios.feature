@@ -29,7 +29,7 @@ Feature: Web words analyzer
 
 
 
-    Scenario: Analyze a empty url text
+    Scenario: Analyze a empty data text
       Given I have the text ""
       When I put it in the date textfield
       And I click the seeDate button
@@ -47,7 +47,7 @@ Feature: Web words analyzer
       And I click the execute button
       Then I see that text in the result text
     """
-    No se ha podido leer la pagina...
+    No se ha podido leer la pagina
     """
       And I see in the url textfield the text ""
       And I see in the date textfield the text ""

@@ -1,6 +1,9 @@
 from lettuce import step
 from lettuce import world
-from mock import patch
+
+
+
+
 
 @step('I have the text "(.*)"')
 def have_the_text(step, text):
@@ -20,6 +23,7 @@ def put_text_click_e_bottom(step):
 @step('I see that text in the result text')
 def check_result_text(step):
     result_text = world.driver.find_element_by_id("answer").text
+    print(result_text)
     assert result_text == step.multiline
 
 
@@ -46,6 +50,5 @@ def check_text(step, text):
 
 
 @step('I make sure that this url is invalid')
-@patch('aplication.web_updater.web_updater')
-def make_invalid(step, mock):
-    function
+def make_invalid(step):
+    pass
