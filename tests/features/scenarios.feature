@@ -1,50 +1,73 @@
 Feature: Web words analyzer
-    In order to analyze a text in the web
+    In order to see how many words are typing by day
     As users
-    We'll implement a web that will use our words analyzer script
+    We'll implement a web that will use a url to get text and save it in a data base
 
-    Scenario: Analyze a normal text
-      Given I have the text "Hola, me llamo Alfonso. Hola que tal, no me llamo Arturo."
-      When I put it in the textfield
+
+    Scenario: Analyze a normal url
+      Given I have the text "http://127.0.0.1:8000/"
+      When I put it in the url textfield
       And I click the execute button
       Then I see that text in the result text
             """
-          me 2
-          llamo 2
-          hola 2
-          no 1
-          tal 1
-          que 1
-          alfonso 1
-          arturo 1
+          ver 1
+guarro 1
+esto 1
+carajo 1
+se 1
       """
-      And I see in the textfield the text ""
+      And I see in the url textfield the text ""
+      And I see in the date textfield the text ""
 
-    Scenario: Analyze a empty text
-      Given I have the text ""
-      When I put it in the textfield
+    Scenario: Invalid url
+      Given I have the text "invalidUrl"
+      When I put it in the url textfield
       And I click the execute button
       Then I see that text in the result text
     """
+    No se ha podido leer la pagina
     """
-      And I see in the textfield the text ""
+      And I see in the url textfield the text ""
+      And I see in the date textfield the text ""
 
-    Scenario: Reset the textfield
-      Given I have in the textfield the text "Esto va a ser reseteado"
-      When I click the reset bottom
-      Then I see in the textfield the text ""
+    Scenario: Invalid date
+      Given I have the text "invalidDate"
+      When I put it in the date textfield
+      And I click the seeDate button
+      Then I see that text in the result text
+    """
+    """
+      And I see in the url textfield the text ""
+      And I see in the date textfield the text ""
 
-    Scenario: Reset the empty textfield
-      Given I have in the textfield the text ""
-      When I click the reset bottom
-      Then I see in the textfield the text ""
-
-    Scenario: More than 100 characters at the textfield
-      Given I have the text "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789EstoNoSaldra"
-      When I put it in the textfield the text
-      And I click the execute button
+    Scenario: Analyze a normal date
+      Given I have the text "testDate"
+      When I put it in the date textfield
+      And I click the seeDate button
       Then I see that text in the result text
             """
-0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789 1
+          guarro 5.0
+muy 4.0
+es 3.0
+tambien 2.0
+esto 1.0
       """
-      And I see in the textfield the text ""
+      And I see in the url textfield the text ""
+      And I see in the date textfield the text ""
+
+    Scenario: With 2 textfield not empty, and click execute, both are empty
+      Given I have the text "Lo que sea"
+      When I put it in the date textfield
+      And I put it in the url textfield
+      And I click the execute button
+      Then I see in the url textfield the text ""
+      And I see in the date textfield the text ""
+
+
+    Scenario: With 2 textfield not empty, and click seeDate, both are empty
+      Given I have the text "Lo que sea"
+      When I put it in the date textfield
+      And I put it in the url textfield
+      And I click the seeDate button
+      Then I see in the url textfield the text ""
+      And I see in the date textfield the text ""

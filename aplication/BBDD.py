@@ -19,13 +19,10 @@ class gestorBBDD:
     def showData(self, date):
         return self.r.zrange(date, 0, -1, desc=True, withscores=True)
 
+    def removeData(self, name):
+        self.r.delete(name)
+
 
 if __name__ == '__main__':
-    gestor = gestorBBDD()
-    data = []
-    letters = ["a", "b", "c", "d", "e"]
-    for i in range(4):
-        data.append([letters[i], i+1])
-    print(data)
-    gestor.addDataTest("21/04/97", data)
-    print(gestor.showDataTest("21/04/97"))
+    nuevo = gestorBBDD()
+    print nuevo.showData("0000-00-00")

@@ -13,7 +13,7 @@ class NameForm(forms.Form):
 
 
 class DateForm(forms.Form):
-    date = forms.DateField(label='Introduce fecha formato YYYY-MM-DD', required=True)
+    date = forms.CharField(label='Introduce fecha formato YYYY-MM-DD', required=True)
 
     def getDate(self):
         date = ""
