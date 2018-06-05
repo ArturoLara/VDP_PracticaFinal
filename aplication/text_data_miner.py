@@ -13,7 +13,7 @@ def text_data_miner(texto):
 
     texto = texto.lower()
 
-    more_puntuation=['¡', '´', '¨', '¿', '«', '»', '©']
+    more_puntuation=['¡', '´', '¨', '¿', '«', '»', '©', '“', '”', '—', '€', '$']
     for puntuacion in string.punctuation:
         texto = texto.replace(puntuacion, " ")
     for puntuacion in more_puntuation:
