@@ -10,7 +10,7 @@ def web_updater(url):
     try:
         texto = get_text_from_url(url)
     except:
-        return [["No se ha podido", "leer la pagina"]]
+        return [["No se ha podido", "leer la pagina..."]]
 
     now = datetime.datetime.now().strftime("%Y-%m-%d")
     base_datos = gestorBBDD()
