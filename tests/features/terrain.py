@@ -1,14 +1,6 @@
 from lettuce import world, before, after
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import mock
-
-def mock_return(url):
-    if(url=="invalidUrl"):
-        return [["No se ha podido", "leer la pagina"]]
-    return [["m2", 2], ["llamo", 2], ["hola", 2]]
-
-
 
 @before.all
 def setup_browser():

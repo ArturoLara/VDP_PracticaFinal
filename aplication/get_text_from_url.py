@@ -18,6 +18,3 @@ def get_text_from_url(link):
         list.append(i.text.strip())
     return list
 
-
-if __name__ == '__main__':
-    link = get_text_from_url("2")

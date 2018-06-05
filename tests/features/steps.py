@@ -1,10 +1,6 @@
 from lettuce import step
 from lettuce import world
 
-
-
-
-
 @step('I have the text "(.*)"')
 def have_the_text(step, text):
     world.text = text
@@ -23,17 +19,18 @@ def put_text_click_e_bottom(step):
 @step('I see that text in the result text')
 def check_result_text(step):
     result_text = world.driver.find_element_by_id("answer").text
-    print(result_text)
     assert result_text == step.multiline
+
+
+
+@step('I click the seeDate button')
+def click_execute_button(step):
+    world.driver.find_element_by_id("executeDate").click()
 
 
 @step('I click the execute button')
 def click_execute_button(step):
     world.driver.find_element_by_id("execute").click()
-
-@step('I click the seeDate button')
-def click_execute_button(step):
-    world.driver.find_element_by_id("executeDate").click()
 
 
 
@@ -48,7 +45,3 @@ def check_text(step, text):
     textfield = world.driver.find_element_by_id("id_date").get_attribute('value')
     assert textfield == text
 
-
-@step('I make sure that this url is invalid')
-def make_invalid(step):
-    pass

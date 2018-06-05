@@ -5,44 +5,22 @@ Feature: Web words analyzer
 
 
     Scenario: Analyze a normal url
-      Given I have the text "url_to_mock.html"
+      Given I have the text "http://127.0.0.1:8000/"
       When I put it in the url textfield
       And I click the execute button
       Then I see that text in the result text
             """
-          me 2
-          llamo 2
-          hola 2
+          ver 1
+guarro 1
+esto 1
+carajo 1
+se 1
       """
       And I see in the url textfield the text ""
       And I see in the date textfield the text ""
 
-    Scenario: Analyze a empty url text
-      Given I have the text ""
-      When I put it in the url textfield
-      And I click the execute button
-      Then I see that text in the result text
-    """
-    """
-      And I see in the url textfield the text ""
-      And I see in the date textfield the text ""
-
-
-
-    Scenario: Analyze a empty data text
-      Given I have the text ""
-      When I put it in the date textfield
-      And I click the seeDate button
-      Then I see that text in the result text
-    """
-    """
-      And I see in the url textfield the text ""
-      And I see in the date textfield the text ""
-
-
     Scenario: Invalid url
       Given I have the text "invalidUrl"
-      And I make sure that this url is invalid
       When I put it in the url textfield
       And I click the execute button
       Then I see that text in the result text
@@ -63,14 +41,16 @@ Feature: Web words analyzer
       And I see in the date textfield the text ""
 
     Scenario: Analyze a normal date
-      Given I have the text "2018-06-05"
+      Given I have the text "testDate"
       When I put it in the date textfield
       And I click the seeDate button
       Then I see that text in the result text
             """
-          me 2
-          llamo 2
-          hola 2
+          guarro 5.0
+muy 4.0
+es 3.0
+tambien 2.0
+esto 1.0
       """
       And I see in the url textfield the text ""
       And I see in the date textfield the text ""

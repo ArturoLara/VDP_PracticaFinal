@@ -22,3 +22,7 @@ class gestorBBDD:
     def removeData(self, name):
         self.r.delete(name)
 
+
+if __name__ == '__main__':
+    nuevo = gestorBBDD()
+    print nuevo.showData("0000-00-00")
