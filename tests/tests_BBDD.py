@@ -1,31 +1,37 @@
 # -*- coding: UTF-8 -*-
 
 import sys
-from aplication.get_text_from_url import get_text_from_url
 import unittest
-import urllib2
-from mock import patch
+from aplication.BBDD import gestorBBDD
 sys.path.append("..")
 
 class tester_text_data_miner(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        gestorBBDD().r.zadd("tempTestData", 1, "a")
 
-    @patch('urllib2.urlopen')
-    def test_short_tesx(self, mocked_f):
-        mocked_f.return_value = "<p>Maravilloso</p>"
-        result = get_text_from_url("mocked_url.html")
-        assert result == [u'Maravilloso']
+    def test_insert_data(self):
+        lista = [["test", 1], ["data", 2]]
+        gestorBBDD().addData("testData", lista)
+        result = gestorBBDD().r.zrange("testData", 0, -1, desc=True, withscores=True)
+        assert result == ["test", "1", "data", "2"]
 
-    @patch('urllib2.urlopen')
-    def test_complex_text(self, mocked_f):
-        mocked_f.return_value = "<p>Maravilloso</p> <p>Increible</p> <a> Esto no saldra </a>"
-        result = get_text_from_url("mocked_url.html")
-        assert result == [u'Maravilloso', u'Increible']
 
-    def test_invalid_url(self):
-        self.assertRaises(ValueError, get_text_from_url, "invalidUrl")
+    def test_get_data(self):
+        result = gestorBBDD().showData("tempTestData")
+        assert result == ["a", "1"]
 
-    def test_httpError(self):
-        self.assertRaises(urllib2.URLError, get_text_from_url, "http://mentira.html")
+    def test_delete_data(self):
+        gestorBBDD().removeData("tempTestData")
+        result = gestorBBDD().r.keys(pattern="tempTestData")
+        assert result == ""
+
+    @classmethod
+    def tearDownClass(cls):
+        gestorBBDD().r.delete("tempTestData")
+        gestorBBDD().r.delete("testData")
+
+
 
 if __name__ == '__main__':
     unittest.main()
