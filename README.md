@@ -1,4 +1,4 @@
-# Practica 3 BDD
+# Practica final
 
 Python version: 2.x
 
