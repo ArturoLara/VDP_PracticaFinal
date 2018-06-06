@@ -7,6 +7,7 @@ from aplication.BBDD import gestorBBDD
 
 
 
+
 class tester_text_data_miner(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -8,13 +8,14 @@ from mock import patch
 
 
 
-class tester_text_data_miner(unittest.TestCase):
+class tester_web_updater(unittest.TestCase):
 
-    def pass_method(self, now):
+    def pass_method(self, **now):
         pass
 
     def test_invalid_url(self):
         result = web_updater("invalidUrl")
+        print result
         assert result == [["No se ha podido", "leer la pagina"]]
 
     @patch('aplication.web_updater.get_text_from_url', return_value=["simple"])
