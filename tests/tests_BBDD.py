@@ -11,17 +11,17 @@ class tester_text_data_miner(unittest.TestCase):
         cls.bbdd = gestorBBDD()
 
     def test_insert_data(self):
-        lista = [["test", 1], ["data", 2]]
+        lista = {"test":1, "data": 2}
         dict = {"test":2, "nuevo": 1}
         self.bbdd.r.zadd("testData", **dict)
-        self.bbdd.addData("testData", lista)
+        self.bbdd.addData("testData", **lista)
         result = self.bbdd.r.zrange("testData", 0, -1, desc=True, withscores=True)
         assert result == [('test', 3.0), ('data', 2.0), ('nuevo', 1.0)]
 
 
     def test_insert_data_with_no_data(self):
-        lista = [["test", 1], ["data", 2]]
-        self.bbdd.addData("testData", lista)
+        lista = {"test": 1, "data": 2}
+        self.bbdd.addData("testData", **lista)
         result = self.bbdd.r.zrange("testData", 0, -1, desc=True, withscores=True)
         assert result == [("data", 2.0), ("test", 1.0)]
 

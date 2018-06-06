@@ -19,7 +19,6 @@ def web_updater(url):
     lista_final = []
     for frase in texto:
         lista_repetidas = text_data_miner(frase)
-        base_datos.addData(now, lista_repetidas)
 
         for palabra in lista_repetidas:
             if diccionario.has_key(palabra[0]):
@@ -27,6 +26,7 @@ def web_updater(url):
             else:
                 diccionario[palabra[0]] = palabra[1]
 
+    base_datos.addData(now, **diccionario)
     for key in diccionario.keys():
         lista_final.append([key, diccionario[key]])
 
