@@ -25,7 +25,6 @@ class tester_web_updater(unittest.TestCase):
         assert result == [["simple", 1]]
 
 
-
     @patch('aplication.web_updater.get_text_from_url', return_value=["simple pero cierto simple pero cierto"])
     @patch('aplication.web_updater.gestorBBDD.showData', return_value=[("simple",1)])
     @patch('aplication.web_updater.gestorBBDD.addData', side_effect=pass_method)
