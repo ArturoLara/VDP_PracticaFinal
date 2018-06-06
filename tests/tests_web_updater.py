@@ -4,7 +4,7 @@ import sys
 sys.path.append("..")
 from aplication.web_updater import web_updater
 import unittest
-from unittest.mock import patch
+from mock import patch
 
 
 
