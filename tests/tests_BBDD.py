@@ -1,9 +1,7 @@
 # -*- coding: UTF-8 -*-
 
-import sys
 import unittest
 from aplication.BBDD import gestorBBDD
-sys.path.append("..")
 
 class tester_text_data_miner(unittest.TestCase):
     @classmethod
