@@ -1,11 +1,12 @@
 # -*- coding: UTF-8 -*-
 
 import sys
+sys.path.append("..")
 from aplication.get_text_from_url import get_text_from_url
 import unittest
 import urllib2
 from mock import patch
-sys.path.append("..")
+
 
 class tester_text_data_miner(unittest.TestCase):
 

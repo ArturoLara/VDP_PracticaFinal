@@ -1,11 +1,12 @@
 # -*- coding: UTF-8 -*-
 
 import sys
+sys.path.append("..")
 from aplication.web_updater import web_updater
 import unittest
 from mock import patch
 
-sys.path.append("..")
+
 
 class tester_text_data_miner(unittest.TestCase):
 
