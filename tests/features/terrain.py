@@ -8,9 +8,9 @@ def setup_browser():
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
-    #chrome_driver_binary = "/usr/local/bin/chromedriver"
-    #chrome_options.binary_location = '/opt/google/chrome/google-chrome'
-    world.driver = webdriver.Chrome(chrome_options=chrome_options)
+    chrome_driver_binary = "/usr/local/bin/chromedriver"
+    chrome_options.binary_location = '/opt/google/chrome/google-chrome'
+    world.driver = webdriver.Chrome(chrome_driver_binary, chrome_options=chrome_options)
     world.driver.get("http://35.180.103.245:8000/")
 
 
