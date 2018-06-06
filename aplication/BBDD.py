@@ -3,7 +3,7 @@ import redis
 
 class gestorBBDD:
     def __init__(self):
-        self.r = redis.StrictRedis(host='35.180.103.245', port=6379, db=0, password="redis")
+        self.r = redis.StrictRedis(host='35.180.98.140', port=6379, db=0, password="redis")
 
     def addData(self, date, **data):
         if self.r.zcard(date) < 1:
