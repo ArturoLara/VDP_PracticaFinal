@@ -8,3 +8,6 @@ venv:
 	virtualenv venv
 	venv/bin/pip install --upgrade pip
 	venv/bin/pip install --upgrade setuptools
+
+test:
+    sh -c '. venv/bin/activate; nosetests tests'
