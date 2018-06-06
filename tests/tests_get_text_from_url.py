@@ -5,7 +5,6 @@ sys.path.append("..")
 from aplication.get_text_from_url import get_text_from_url
 import unittest
 import urllib2
-import mock
 from mock import patch
 
 
