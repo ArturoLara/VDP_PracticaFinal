@@ -2,7 +2,6 @@ import redis
 
 
 class gestorBBDD:
-
     def __init__(self):
         self.r = redis.StrictRedis(host='35.180.103.245', port=6379, db=0, password="redis")
 
@@ -23,6 +22,3 @@ class gestorBBDD:
         self.r.delete(name)
 
 
-if __name__ == '__main__':
-    nuevo = gestorBBDD()
-    print nuevo.showData("0000-00-00")

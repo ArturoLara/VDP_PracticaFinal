@@ -1,4 +1,3 @@
-
 from get_text_from_url import get_text_from_url
 from BBDD import *
 import datetime
