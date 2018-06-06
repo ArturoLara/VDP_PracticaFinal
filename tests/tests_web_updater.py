@@ -15,7 +15,6 @@ class tester_web_updater(unittest.TestCase):
 
     def test_invalid_url(self):
         result = web_updater("invalidUrl")
-        print result
         assert result == [["No se ha podido", "leer la pagina"]]
 
     @patch('aplication.web_updater.get_text_from_url', return_value=["simple"])
