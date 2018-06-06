@@ -2,12 +2,7 @@
 
 import sys
 from aplication.web_updater import web_updater
-from aplication.get_text_from_url import get_text_from_url
 import unittest
-import mock
-
-import aplication.get_text_from_url
-
 from mock import patch
 
 sys.path.append("..")

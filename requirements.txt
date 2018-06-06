@@ -3,3 +3,5 @@ selenium
 lettuce
 django
 bs4
+mock
+redis
