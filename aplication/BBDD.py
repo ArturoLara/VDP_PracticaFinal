@@ -19,4 +19,3 @@ class gestorBBDD:
     def removeData(self, name):
         self.r.delete(name)
 
-
