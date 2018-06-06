@@ -8,9 +8,9 @@ from mock import patch
 
 
 
-class tester_text_data_miner(unittest.TestCase):
+class tester_web_updater(unittest.TestCase):
 
-    def pass_method(self, now):
+    def pass_method(self, **now):
         pass
 
     def test_invalid_url(self):

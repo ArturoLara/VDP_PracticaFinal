@@ -10,6 +10,8 @@ You can install the dependencies using:
 make bootstrap
 ```
 
+
+
 ## How it works
 
 As first step you should start Django server, **_(¿Cómo lo hago? Necesitas especificarlo e indicar que debo de estar dentro del virtualenv para que funcione)_**
